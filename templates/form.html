@@ -1,0 +1,53 @@
+<html></html>
+<body>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    <div class="form-group">
+        <label for="Sunlight_Hours">Sunlight Hours:</label>
+        <input type="text" id="Sunlight_Hours" name="Sunlight_Hours" placeholder="Enter Sunlight Hours (float)">
+    </div>
+
+    <div class="form-group">
+        <label for="Temperature">Temperature:</label>
+        <input type="text" id="Temperature" name="Temperature" placeholder="Enter Temperature (float)">
+    </div>
+
+    <div class="form-group">  
+        <label for="Humidity">Humidity:</label>
+        <input type="text" id="Humidity" name="Humidity" placeholder="Enter Humidity (float)">
+    </div>
+           
+  
+<div class="form-group">
+  <label for="Soil_Type">Soil_Type:</label>
+  <select id="Soil_Type" name="Soil_Type">
+    <option value="clay">clay</option>
+    <option value="sandy">sandy</option>
+    <option value="loam">loam</option>
+  </select>
+</div>
+  
+<div class="form-group">
+  <label for="Water_Frequency">Water_Frequency:</label>
+  <select id="Water_Frequency" name="Water_Frequency">
+    <option value="daily">daily</option>
+    <option value="bi-weekly">bi-weekly</option>
+    <option value="weekly">weekly</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Fertilizer_Type">Fertilizer_Type:</label>
+  <select id="Fertilizer_Type" name="Fertilizer_Type">
+    <option value="none">none</option>
+    <option value="chemical">chemical</option>
+    <option value="organic">organic </option>
+  </select>
+</div>
+
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+</form>
+
+{{final_result}}
+</body>
+</html>
