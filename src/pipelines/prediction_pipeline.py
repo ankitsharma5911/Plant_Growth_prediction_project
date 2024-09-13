@@ -1,4 +1,4 @@
-import sys,os
+import sys,os,pandas as pd
 from src.logger import logging
 from src.exception import CustomException
 from src.utils import load_object
@@ -46,8 +46,16 @@ class CustomData:
         try:
             custom_data_input_dict = {
                 'soil_type':[self.soil_type],
-                'sunlight_hours':[self.sunlight_hours]
+                'sunlight_hours':[self.sunlight_hours],
+                'water_frequency':[self.water_frequency],
+                'fertilizer_type':[self.fertilizer_type],
+                'temperature':[self.temperature],
+                'humidity':[self.humidity]
             }
+
+            df = pd.DataFrame(custom_data_input_dict)
+            logging.info('Dataframe Gathered')
+            return df
         except Exception as e:
             CustomException(e,sys)
 
