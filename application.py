@@ -7,7 +7,7 @@ app=application
 
 @app.route('/')
 def home_page():
-    return render_template('index.html')
+    return render_template('form.html')
 
 
 @app.route('/predict',methods=['GET','POST'])
@@ -18,18 +18,24 @@ def predict_datapoint():
     
     else:
         data=CustomData(
-            Soil_Type=float(request.form.get('Soil_Type')),
+            Soil_Type=request.form.get('Soil_Type'),
             Sunlight_Hours = float(request.form.get('Sunlight_Hours')),
-            Water_Frequency = float(request.form.get('Water_Frequency')),
-            Fertilizer_Type = float(request.form.get('Fertilizer_Type')),
+            Water_Frequency = request.form.get('Water_Frequency'),
+            Fertilizer_Type = request.form.get('Fertilizer_Type'),
             Temperature = float(request.form.get('Temperature')),
             Humidity = float(request.form.get('Humidity'))
         )
         final_new_data=data.get_data_as_dataframe()
         predict_pipeline=PredictPipeline()
+        
         pred=predict_pipeline.predict(final_new_data)
 
-        results=pred 
+        results = ''
+
+        if pred == 0:
+            results='Plant will not grow...!'
+        else:
+            results = 'Plant will grow..'
 
         return render_template('form.html',final_result=results)
     

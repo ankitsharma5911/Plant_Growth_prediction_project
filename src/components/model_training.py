@@ -13,8 +13,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from xgboost import XGBClassifier
+from sklearn.ensemble import GradientBoostingClassifier 
 
 
 @dataclass
@@ -45,8 +44,7 @@ class ModelTrainer:
                 'KNN': KNeighborsClassifier(),
                 'Random Forest Classifier' : RandomForestClassifier(),
                 'Adaboosting' : AdaBoostClassifier(),
-                'GradientBoosting' : GradientBoostingClassifier(),
-                "Xgboosting" : XGBClassifier()
+                'GradientBoosting' : GradientBoostingClassifier()
             }
 
             model_report:dict=evaluate_model(X_train,y_train,X_test,y_test,models)
