@@ -61,20 +61,6 @@ class CustomData:
         except Exception as e:
             CustomException(e,sys)
 
-if __name__=="__main__":
-    data=CustomData(
-            Soil_Type='loam',
-            Sunlight_Hours = 5,
-            Water_Frequency = 'weekly',
-            Fertilizer_Type = 'none',
-            Temperature = 20,
-            Humidity = 50
-        )
-    final_new_data=data.get_data_as_dataframe()
-    predict_pipeline=PredictPipeline()
-    
-    pred=predict_pipeline.predict(final_new_data)
-
-    print(pred) 
+ 
 
 
