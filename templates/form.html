@@ -1,57 +1,85 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: auto;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
-<form action="{{url_for('predict_datapoint')}}" method="POST">
-    <div class="form-group">
-        <label for="Sunlight_Hours">Sunlight Hours:</label>
-        <input type="text" id="Sunlight_Hours" name="Sunlight_Hours" placeholder="Enter Sunlight Hours (float)">
+    <form action="{{url_for('predict_datapoint')}}" method="POST">
+        <div class="form-group">
+            <label for="Sunlight_Hours">Sunlight Hours:</label>
+            <input type="text" id="Sunlight_Hours" name="Sunlight_Hours" placeholder="Enter Sunlight Hours (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="Temperature">Temperature:</label>
+            <input type="text" id="Temperature" name="Temperature" placeholder="Enter Temperature (float)">
+        </div>
+
+        <div class="form-group">  
+            <label for="Humidity">Humidity:</label>
+            <input type="text" id="Humidity" name="Humidity" placeholder="Enter Humidity (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="Soil_Type">Soil Type:</label>
+            <select id="Soil_Type" name="Soil_Type">
+                <option value="clay">Clay</option>
+                <option value="sandy">Sandy</option>
+                <option value="loam">Loam</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Water_Frequency">Water Frequency:</label>
+            <select id="Water_Frequency" name="Water_Frequency">
+                <option value="daily">Daily</option>
+                <option value="bi-weekly">Bi-weekly</option>
+                <option value="weekly">Weekly</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Fertilizer_Type">Fertilizer Type:</label>
+            <select id="Fertilizer_Type" name="Fertilizer_Type">
+                <option value="none">None</option>
+                <option value="chemical">Chemical</option>
+                <option value="organic">Organic</option>
+            </select>
+        </div>
+
+        <div style="clear:both;"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div>
+        {{final_result}}
     </div>
-
-    <div class="form-group">
-        <label for="Temperature">Temperature:</label>
-        <input type="text" id="Temperature" name="Temperature" placeholder="Enter Temperature (float)">
-    </div>
-
-    <div class="form-group">  
-        <label for="Humidity">Humidity:</label>
-        <input type="text" id="Humidity" name="Humidity" placeholder="Enter Humidity (float)">
-    </div>
-           
-  
-<div class="form-group">
-  <label for="Soil_Type">Soil_Type:</label>
-  <select id="Soil_Type" name="Soil_Type">
-    <option value="clay">clay</option>
-    <option value="sandy">sandy</option>
-    <option value="loam">loam</option>
-  </select>
-</div>
-  
-<div class="form-group">
-  <label for="Water_Frequency">Water_Frequency:</label>
-  <select id="Water_Frequency" name="Water_Frequency">
-    <option value="daily">daily</option>
-    <option value="bi-weekly">bi-weekly</option>
-    <option value="weekly">weekly</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <label for="Fertilizer_Type">Fertilizer_Type:</label>
-  <select id="Fertilizer_Type" name="Fertilizer_Type">
-    <option value="none">none</option>
-    <option value="chemical">chemical</option>
-    <option value="organic">organic </option>
-  </select>
-</div>
-
-<div style="clear:both;"></div>
-  <input type="submit" value="Submit">
-</form>
-<div>
-  
-  {{final_result}}
-
-</div>
-
 </body>
 </html>
