@@ -4,5 +4,5 @@ seaborn
 flask
 scikit-learn
 gunicorn
-pytest
+
 -e .
